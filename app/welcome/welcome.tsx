@@ -43,7 +43,16 @@ export function Welcome() {
         <header className="flex flex-col items-center gap-9">
           { /* Header with title */}
           <h1 className="text-3xl font-bold">
-            Hello, welcome to the <span className="text-primary">Dexie.js</span> example app!
+            {"Hello, welcome to the "}
+            <a
+              className="text-primary"
+              href="https://dexie.org"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {"Dexie.js "}
+            </a>
+            {"example app!"}
           </h1>
         </header>
 

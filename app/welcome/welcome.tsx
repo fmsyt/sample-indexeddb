@@ -1,7 +1,7 @@
 import template from "~/user.hbs?raw";
 import dummyjson from "dummy-json";
 import type { User } from "~/types";
-import { deleteUser, insertUser, useUsers } from "~/user";
+import { deleteUser, insertUser, updateUser, useUsers } from "~/user";
 import { useEffect, useRef } from "react";
 
 function generateUser(seed?: string) {
@@ -90,10 +90,17 @@ export function Welcome() {
                   <td>
                     <pre>{JSON.stringify(user.coordinates, null, 2)}</pre>
                   </td>
-                  <td>
+                  <td className="flex items-center gap-2">
                     <button
                       type="button"
-                      className="btn btn-error"
+                      className="btn btn-sm btn-secondary"
+                      onClick={() => { updateUser(user.id, generateUser()) }}
+                    >
+                      Replace
+                    </button>
+                    <button
+                      type="button"
+                      className="btn btn-sm btn-error"
                       onClick={() => { deleteUser(user.id) }}
                     >
                       Delete
